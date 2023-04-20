@@ -70,27 +70,28 @@ while run:
     # main menu buttons and background image
     screen.blit(menu_img, (0, 0))
 
-    # main menu
-    if display_menu:
-        for count, btn in enumerate(btn_list):
-            btn_img = pygame.image.load(
-                f'graphics/menu buttons/Large Buttons/{btn_list[count]}.png')
-            btn = Button(W//2-(btn_img.get_width()/(SCALE/10)),
-                         H//4+(1.5*SCALE*count), btn_img, SCALE/200)
-            if btn.draw(screen):
-                nav.play()
-                if count == 0:  # new game button
-                    display_menu = False
-                    character_select = True
-                if count == 1:  # load button to select the levels
-                    display_menu = False
-                    level_select = True
-                if count == 2:  # settings button
-                    display_menu = False
-                    show_settings = True
-                if count == 3:  # exit button
-                    run = False
+ # main menu
+if display_menu:
+    for count, btn in enumerate(btn_list):
+        btn_img = pygame.image.load(
+            f'graphics/menu buttons/Large Buttons/{btn_list[count]}.png')
+        btn = Button(W//2-(btn_img.get_width()//(SCALE//10)),
+                     H//4+(1.5*SCALE*count), btn_img, SCALE//200)
+        if btn.draw(screen):
+            nav.play()
+            if count == 0:  # new game button
+                display_menu = False
+                character_select = True
+            if count == 1:  # load button to select the levels
+                display_menu = False
+                level_select = True
+            if count == 2:  # settings button
+                display_menu = False
+                show_settings = True
+            if count == 3:  # exit button
+                run = False
 
+                
     # character select screen
     if character_select:
         buttons = []
