@@ -94,8 +94,8 @@ if display_menu:
                 
     # character select screen
     if character_select:
-        buttons = []
-        for x in range(1, 4):
+        buttons = []    # Empty list is created to hold the character selection buttons 
+        for x in range(1, 4): # For loop runs 3 times, creating a button for each selectabl character and adds them to the 'buttons' list
             buttons.append(
                 Button(W/4.5*x, H/2, pygame.image.load(f'graphics/menu buttons/char {x}.png'), 4))
             pos = pygame.mouse.get_pos()  # get mouse position on screen
@@ -103,7 +103,7 @@ if display_menu:
                       screen, ui_font_2)
 
             # if the mouse hovers over the button, draw a red rectangle
-            if buttons[x-1].rect.collidepoint(pos):
+            if buttons[x-1].rect.collidepoint(pos): # If button is clicked, selected character is stored in a variable called character 
                 pygame.draw.rect(screen, 'red', buttons[x-1].rect, 6)
             if buttons[x-1].draw(screen):
                 nav.play()
